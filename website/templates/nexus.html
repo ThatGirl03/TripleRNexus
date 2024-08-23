@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Nexus{% endblock %}
+{% block content %}
+
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/nexus.css') }}"
+/>
+
+<body>
+    <div class="container">
+        <h1>Create Your Profile According To Your Specialization</h1>
+        <div class="app-grid">
+            <div class="app-card">
+                <img src="static/images/cans.jpg" alt="Recycled Cans">
+                <h2>Recycled Cans</h2>
+                <p>Showcase your work with recycled cans.</p>
+                <a href="cans"><button>Get Started</button></a>
+
+            </div>
+            <div class="app-card">
+                <img src="static/images/paper.jpg" alt="Paper and cardboard">
+                <h2>Recycled Paper and cardboard</h2>
+                <p>Showcase your work with recycled Paper and cardboard.</p>
+                <a href="Paper_Cardboard"><button>Get Started</button></a>
+            </div>                                        
+            <div class="app-card">
+                <img src="static/images/plastic.jpg" alt="Recycled Plastic">
+                <h2>Recycled Plastic</h2>
+                <p>Showcase your work with recycled Plastic.</p>
+                <a href="plastic"><button>Get Started</button></a>
+            </div>
+            <div class="app-card">
+                <img src="static/images/glass.jpg" alt="Recycled Glass">
+                <h2>Recycled Glass</h2>
+                <p>Showcase your work with recycled Glass.</p>
+                <a href="GlassInfo"><button>Get Started</button></a>
+            </div>
+            <div class="app-card">
+                <img src="static/images/metal.jpg" alt="Recycled Metal">
+                <h2>Recycled Metal</h2>
+                <p>Showcase your work with recycled Metal.</p>
+                <a href="Metal_Info"><button>Get Started</button></a>
+            </div>
+            <div class="app-card">
+                <img src="static/images/electronics.jpg" alt="Recycled Electronics">
+                <h2>Recycled Electronics</h2>
+                <p>Showcase your work with recycled Electronics.</p>
+                <a href="Electronics_Info"><button>Get Started</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}R-Blog{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
+
+<header>
+    <h1>Our Trusted Partners</h1>
+</header>
+
+<main>
+    <!-- Partners Section -->
+    <section id="partners">
+       
+        <div class="partner-logos">
+            
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp2.jpg') }}" alt="Partner 1 Logo">
+            </div>
+         
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp.jpg') }}" alt="Partner 2 Logo">
+            </div>
+
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp3.jpg') }}" alt="Partner 2 Logo">
+            </div>
+
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp4.jpg') }}" alt="Partner 2 Logo">
+            </div>
+
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp5.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp6.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp8.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp0.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp12.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp13.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp87.jpg') }}" alt="Partner 2 Logo">
+            </div>
+        </div>
+    </section>
+    
+    <section id="blogs">
+        <div class="blogs-container">
+            <h2>Their Blogs</h2>
+            <div class="blog-entries">
+                {% for article in articles %}
+                    <div class="blog-entry">
+                        <h3>{{ article.title }}</h3>
+                        <button class="read-more-button" onclick="toggleArticle(this)">Read More</button>
+                        <div class="blog-content" style="display: none;">
+                            {{ article.html | safe }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</main>
+
+<script>
+function toggleArticle(button) {
+    const blogContent = button.nextElementSibling;
+    const isExpanded = blogContent.style.display === 'block';
+    
+    if (isExpanded) {
+        blogContent.style.display = 'none';
+        button.textContent = 'Read More';
+    } else {
+        blogContent.style.display = 'block';
+        button.textContent = 'Read Less';
+    }
+}
+</script>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ blog_detail }}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/blog.css') }}">
+
+<header>
+    <h1>Blog Detail</h1>
+</header>
+
+<main>
+    <section id="blog-detail">
+        <h2>{{ blog.title }}</h2>
+        <div class="blog-content">
+            <p>{{ blog.content }}</p>
+        </div>
+    </section>
+</main>
+{% endblock %}

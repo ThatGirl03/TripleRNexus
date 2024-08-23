@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %} 
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/create-profile.css') }}"/>
+
+<header>
+    <h1>Create Your Profile</h1>
+</header>
+
+<div class="profile-form-container">
+    <form id="profileForm" method="POST" enctype="multipart/form-data"  action="{{ url_for('views.createProfile' ) }}">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required>
+        <br><br>
+
+        <label for="lastName">Surname:</label>
+        <input type="text" id="lastName" name="lastName" placeholder="Enter your surname" required>
+        <br><br>
+
+        <label for="coverPhoto">Cover Photo:</label>
+        <input type="file" id="coverPhoto" name="coverPhoto" accept="image/*">
+        <br><br>
+
+        <label for="bio">Bio:</label>
+        <textarea id="bio" name="bio" placeholder="Tell us more about yourself..." required></textarea>
+        <br><br>
+
+        <label for="mediaUpload">Upload Photo/Video of Your Solution:</label>
+        <input type="file" id="mediaUpload" name="mediaUpload" accept="image/*,video/*" multiple>
+        <br><br>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" placeholder="Enter your location" required>
+        <br><br>
+
+        <label for="workplace">Workplace/Project:</label>
+        <input type="text" id="workplace" name="workplace" placeholder="Where do you work or what project are you working on?" required>
+        <br><br>
+
+        <label for="education">Education:</label>
+        <input type="text" id="education" name="education" placeholder="Your educational background" required>
+        <br><br>
+
+        <label for="highlights">Highlights:</label>
+        <input type="text" id="highlights" name="highlights" placeholder="Any achievements or key points?" required>
+        <br><br>
+
+        <label for="linkedin">LinkedIn:</label>
+        <input type="url" id="linkedin" name="linkedin" placeholder="LinkedIn Profile URL">
+        <br><br>
+
+        <label for="facebook">Facebook:</label>
+        <input type="url" id="facebook" name="facebook" placeholder="Facebook Profile URL">
+        <br><br>
+
+        <label for="instagram">Instagram:</label>
+        <input type="url" id="instagram" name="instagram" placeholder="Instagram Profile URL">
+        <br><br>
+
+        <input type="hidden" id="categoryPrefix" name="categoryPrefix" value="{{ categoryPrefix }}">
+        <!-- Submit Button -->
+        <button type="submit">Create Profile</button>
+    </form>
+</div>
+
+<!-- Modal HTML -->
+<div id="profileCreatedModal" class="modal">
+    <div class="modal-content">
+        <p>Profile successfully created...</p>
+    </div>
+</div>
+
+{% endblock %}

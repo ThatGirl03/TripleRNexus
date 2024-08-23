@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}Certificates{% endblock %}
+
+
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/certificate.css') }}">
+
+<main>
+    
+    <header>
+        <h1>Recycling Courses</h1>
+    </header>
+
+    <button id="toggle-button" class="toggle-button">View Course</button>
+    
+    <div id="certificate" class="certificate-container">
+        <div class="certificate-content">
+            {{ content_html | safe }}
+        </div>
+    </div>
+    
+
+    <section id="partners">
+       
+        <div class="partner-logos">
+            
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp2.jpg') }}" alt="Partner 1 Logo">
+            </div>
+         
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp.jpg') }}" alt="Partner 2 Logo">
+            </div>
+
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp3.jpg') }}" alt="Partner 2 Logo">
+            </div>
+
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp4.jpg') }}" alt="Partner 2 Logo">
+            </div>
+
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp5.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp6.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp8.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp0.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp12.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp13.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp87.jpg') }}" alt="Partner 2 Logo">
+            </div>
+        </div>
+    </section>
+
+
+    
+
+    <header>
+        <h1>Our Trusted Partners</h1>
+    </header>
+</main>
+
+
+<script>
+    document.getElementById('toggle-button').addEventListener('click', function() {
+        var content = document.querySelector('.certificate-content');
+        var button = this;
+    
+        if (content.style.display === 'none' || content.style.display === '') {
+            content.style.display = 'block';
+            button.textContent = 'Hide Course';
+        } else {
+            content.style.display = 'none';
+            button.textContent = 'View Course';
+        }
+    });
+    </script>
+
+{% endblock %}

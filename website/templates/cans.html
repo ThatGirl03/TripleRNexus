@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block title %}Cans{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/nexus.css') }}" />
+
+<header>
+    <h1>Recycled Cans Posts</h1>
+    <button id="createProfileButton">Create Profile</button>
+</header>
+<div class="posts-container" id="postsContainer">
+    {% for profile in profiles %}
+    <div class="post" id="profilePost">
+        <div class="post-header">
+            {% if profile.cover_photo %}
+            <img src="{{ url_for('static', filename='uploads/' + profile.cover_photo) }}" alt="Profile Picture" class="user-avatar">
+            {% else %}
+            <img src="{{ url_for('static', filename='images/default-avatar.png') }}" alt="Profile Picture" class="user-avatar">
+            {% endif %}
+            <div class="post-details">
+                <p><strong>{{ profile.firstname }} {{ profile.lastname }}</strong></p>
+                <p class="location">{{ profile.location }}</p>
+            </div>
+
+          
+
+        </div>
+        <div class="post-content">
+            <p><strong>Workplace/Project:</strong> {{ profile.workplace }}</p>
+            <p><strong>Education:</strong> {{ profile.education }}</p>
+            <p><strong>Highlights:</strong> {{ profile.highlights }}</p>
+            <p><strong>LinkedIn:</strong> <a href="{{ profile.linkedin }}" target="_blank">LinkedIn Profile</a></p>
+            <p><strong>Facebook:</strong> <a href="{{ profile.facebook }}" target="_blank">Facebook Profile</a></p>
+            <p><strong>Instagram:</strong> <a href="{{ profile.instagram }}" target="_blank">Instagram Profile</a></p>
+            <a href="{{ url_for('views.update', profile_id=profile.id) }}" class="btn btn-primary">Update Profile</a>
+        </div>
+        <div class="media-content">
+            {% if profile and profile.media_upload %}
+            {% for media in profile.media_upload.split(',') %}
+                {% if media.endswith(('.jpg', '.jpeg', '.png', '.gif')) %}
+                <img src="{{ url_for('static', filename='uploads/' + media.strip()) }}" alt="Current Media" class="media-img">
+                {% elif media.endswith(('.mp4', '.mov', '.avi')) %}
+                <video controls>
+                    <source src="{{ url_for('static', filename='uploads/' + media.strip()) }}" type="video/{{ media.split('.')[-1] }}">
+                    Your browser does not support the video tag.
+                </video>
+                {% endif %}
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div><p>{{ profile.bio }}</p></div>
+    </div>
+   
+    {% endfor %}
+</div>
+
+<script>
+    document.getElementById('createProfileButton').addEventListener('click', function() {
+        window.location.href = '{{ url_for("views.createProfile") }}';
+    });
+</script>
+
+{% endblock %}

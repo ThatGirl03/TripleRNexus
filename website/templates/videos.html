@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}R-Video{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/videos.css') }}">
+
+
+<header>
+    <h1>Our Trusted Partners</h1>
+</header>
+
+<main>
+    <!-- Partners Section -->
+    <section id="partners">
+       
+        <div class="partner-logos">
+            
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp2.jpg') }}" alt="Partner 1 Logo">
+            </div>
+         
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp.jpg') }}" alt="Partner 2 Logo">
+            </div>
+
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp3.jpg') }}" alt="Partner 2 Logo">
+            </div>
+
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp4.jpg') }}" alt="Partner 2 Logo">
+            </div>
+
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp5.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp6.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp8.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp0.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp12.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp13.jpg') }}" alt="Partner 2 Logo">
+            </div>
+            <div class="partner">
+                <img src="{{ url_for('static', filename='images/comp87.jpg') }}" alt="Partner 2 Logo">
+            </div>
+        </div> 
+
+        </section>
+        <section id="videos">
+            <h2>Their Videos</h2>
+            <div class="videos-container">
+                {% for video in videos %}
+                    <div class="video-entry">
+                        <h3>{{ video.title }}</h3>
+                        <div class="video-wrapper">
+                            <iframe src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+        </main>
+{% endblock %}

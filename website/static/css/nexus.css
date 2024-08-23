@@ -1,0 +1,332 @@
+.btn-teal-blue {
+    color: #ffffff;
+    background-color: #008080; /* Teal Blue */
+    border-color: #008080;
+}
+
+.btn-teal-blue:hover {
+    background-color: #004d40;
+    border-color: #004d40;
+}
+
+#profileForm {
+    margin-top: 30px;
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container Styles */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.profile-form-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styles */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* App Card Grid */
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px; /* Increased the gap between the cards */
+}
+
+.app-card {
+    background-color: rgb(14, 170, 157);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.app-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.app-card h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.app-card p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.app-card button {
+    background-color: #14cc85;
+    color: rgb(255, 253, 253);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.app-card button:hover {
+    background-color: #073a1c;
+}
+
+.app-card:hover {
+    transform: scale(1.05);
+}
+
+/* Header for Post Page */
+
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+#createProfileButton {
+    background-color: #0cd8ac;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#createProfileButton:hover {
+    background-color: #00cc7e;
+}
+
+
+
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+
+
+
+/* Posts Container */
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+    padding: 20px;
+    max-height: 80vh;
+    overflow-y: auto; 
+}
+.post {
+    background-color: rgb(132, 216, 216);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+   
+   
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
+.post-header-text p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.post-content {
+    flex: 1;
+}
+
+.post-content p {
+    margin: 5px 0;
+}
+
+.post-image {
+    width: 100%;
+    max-width: 250px; /* Limit the maximum width to half the previous size */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Profile Creation Form */
+.profile-form-container form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.profile-form-container form input,
+.profile-form-container form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.profile-form-container form button {
+    background-color: #007bff;
+    color: rgb(247, 255, 255);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile-form-container form button:hover {
+    background-color: #e6ebee;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #e4eeee; /* Light teal color */
+    margin: 15% auto; 
+    padding: 20px;
+    border-radius: 15px; /* Rounded corners */
+    width: 300px; /* Set a fixed width */
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.modal-content p {
+    margin: 0;
+    font-size: 18px;
+    color: #4a7d7e; /* Darker teal color */
+}
+
+/* Remove Button */
+.remove-button {
+    background-color: #ff0000;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.remove-button:hover {
+    background-color: #cc0000;
+}
+
+/* Comment Button */
+.comment-button {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.comment-button:hover {
+    background-color: #218838;
+}
+
+/* Comment Section */
+.comment {
+    margin-top: 10px;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.user-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+}
+
+.post-details {
+    margin-left: 15px;
+}
+
+.media-content {
+    margin-top: 15px;
+}
+
+.user-avatar {
+    width: 100px;  /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 50%; /* Optional: makes the image circular */
+}
+
+.media-img {
+    max-width: 1000px; /* Limit the maximum width of images */
+    max-height: 500px; /* Limit the maximum height of images */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    margin-right: 10px;
+}
+
+video {
+    max-width: 300px; /* Limit the maximum width of videos */
+    max-height: 200px; /* Limit the maximum height of videos */
+    display: block;
+    margin-top: 10px;
+}
+
+.post-header {
+    position: relative;
+}
+
+#deleteProfileButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: red;
+    cursor: pointer;
+}

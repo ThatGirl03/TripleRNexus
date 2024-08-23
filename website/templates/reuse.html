@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Re-use{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/reuse.css') }}" />
+
+<section class="reuse-intro">
+  <h1>The Power of Reusing</h1>
+  <p>Reusing isn't just about saving money—it's about giving new life to items that might otherwise end up in landfills. From repurposing household goods to finding new uses for old materials, reusing is a simple yet powerful way to reduce waste and protect our planet.</p>
+  <img src="/static/images/reuse 5.jpg" alt="Creative reuse example" class="intro-image">
+</section>
+
+<section class="reuse-benefits">
+  <h2>Did You Know You Can Make Money by Reusing?</h2>
+  <p>Many people are turning waste into wealth by finding creative ways to reuse items. Whether it's upcycling furniture, refurbishing electronics, or selling second-hand goods, reusing not only reduces waste but can also be a profitable venture.</p>
+  <img src="/static/images/reuse 2.jpg" alt="Money through reusing" class="reuse-image">
+</section>
+
+<section class="reuse-examples">
+  <h3>Things You Can Reuse</h3>
+  <ul>
+    <li>Glass jars as storage containers</li>
+    <li>Old clothes for crafts or donations</li>
+    <li>Wooden pallets for garden furniture</li>
+    <li>Electronics parts for DIY projects</li>
+  </ul>
+  <img src="/static/images/rethink waste.jpg" alt="Reuse examples" class="reuse-examples-image">
+</section>
+
+<section class="reuse-importance">
+  <h3>The Importance of Reusing</h3>
+  <p>Reusing items helps conserve natural resources, reduces the need for new production, and minimizes environmental pollution. By reusing, we can significantly decrease our ecological footprint and contribute to a more sustainable future.</p>
+</section>
+
+<section class="reuse-impact">
+  <h3>Impact of Reusing on the Environment</h3>
+  <p>Reusing reduces the demand for raw materials, cuts down on energy consumption, and lowers greenhouse gas emissions. Every item reused is one less item that needs to be manufactured, shipped, and eventually disposed of.</p>
+  <img src="/static/images/waterP.jpeg" alt="Environmental impact" class="impact-image">
+</section>
+
+<section class="littering-dangers">
+  <h3>The Dangers of Littering</h3>
+  <p>Littering harms wildlife, pollutes waterways, and contributes to the degradation of natural habitats. It poses a threat not only to human health but to all living creatures on Earth. By reusing and reducing waste, we can help mitigate these dangers and preserve the planet for future generations.</p>
+</section>
+
+<section class="partnerships">
+  <h3>Connect and Collaborate</h3>
+  <p>Use our platform to connect with potential partners and collaborators. Together, we can make a bigger impact by promoting reuse practices and creating a cleaner, more sustainable world.</p>
+</section>
+
+{% endblock %}

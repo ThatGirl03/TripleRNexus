@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}" />
+
+<header>
+    <h1>User Profile</h1>
+</header>
+
+<div class="profile-container">
+    <div class="profile-header">
+        {% if profile.cover_photo %}
+        <img src="{{ url_for('static', filename='uploads/' + profile.cover_photo) }}" alt="Profile Picture" class="user-avatar">
+        {% else %}
+        <img src="{{ url_for('static', filename='images/default-avatar.png') }}" alt="Profile Picture" class="user-avatar">
+        {% endif %}
+        <div class="profile-details">
+            <p><strong>{{ profile.firstname }} {{ profile.lastname }}</strong></p>
+            <p class="location">{{ profile.location }}</p>
+        </div>
+    </div>
+    <div class="profile-content">
+        <p><strong>Workplace/Project:</strong> {{ profile.workplace }}</p>
+        <p><strong>Education:</strong> {{ profile.education }}</p>
+        <p><strong>Highlights:</strong> {{ profile.highlights }}</p>
+        <p><strong>LinkedIn:</strong> <a href="{{ profile.linkedin }}" target="_blank">LinkedIn Profile</a></p>
+        <p><strong>Facebook:</strong> <a href="{{ profile.facebook }}" target="_blank">Facebook Profile</a></p>
+        <p><strong>Instagram:</strong> <a href="{{ profile.instagram }}" target="_blank">Instagram Profile</a></p>
+        <p><strong>Bio:</strong> {{ profile.bio }}</p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block title %}R-Trade{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/r-trade.css') }}" />
+
+<header>
+    <h1>R-Trade</h1>
+    <button id="createTradeButton">Create Trade</button>
+</header>
+
+<!-- Create Trade Form -->
+<div id="createTradeForm" style="display: none;">
+    <form action="{{ url_for('views.create_trade') }}" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="image">Upload Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+        </div>
+        <div>
+            <label for="caption">Caption:</label>
+            <textarea id="caption" name="caption" rows="4" required></textarea>
+        </div>
+        <div>
+            <label for="type">Type:</label>
+            <select id="type" name="type" required>
+                <option value="Trade">Trade</option>
+                <option value="Sell">Sell</option>
+                <option value="Donate">Donate</option>
+            </select>
+        </div>
+        <div id="priceDiv" style="display: none;">
+            <label for="price">Price (R):</label>
+            <input type="number" id="price" name="price" step="0.01" min="0">
+        </div>
+        <div id="tradeOptionsDiv" style="display: none;">
+            <label for="trade_options">What do you want as an exchange to recycle:</label>
+            <select id="trade_options" name="trade_options">
+                <option value="Electronics">Electronics</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Books">Books</option>
+                <option value="Other">Other</option>
+            </select>
+            <div id="otherOptionDiv" style="display: none;">
+                <label for="other_trade">Specify other:</label>
+                <input type="text" id="other_trade" name="other_trade" placeholder="Describe other item">
+            </div>
+        </div>
+        <div>
+            <label for="contact_link">Business Contact Link:</label>
+            <input type="url" id="contact_link" name="contact_link" placeholder="https://example.com">
+        </div>
+        <button type="submit">Post Trade</button>
+    </form>
+</div>
+
+<!-- Display Trades -->
+<div class="trades-container" id="tradesContainer">
+    {% for trade in trades %}
+    <div class="trade-post">
+        <img src="{{ url_for('static', filename='uploads/' + trade.image if trade.image else 'default-image.jpg') }}" alt="Trade Image" class="trade-image">
+        <p><strong>{{ trade.caption }}</strong></p>
+        {% if trade.type == 'Sell' %}
+        <p><strong>Price:</strong> R{{ trade.price }}</p>
+        {% endif %}
+        <p><strong>Posted by:</strong> <a href="{{ trade.contact_link }}" target="_blank">{{ trade.user_name }}</a></p>
+    </div>
+    {% endfor %}
+</div>
+
+<script>
+    document.getElementById('createTradeButton').addEventListener('click', function() {
+        document.getElementById('createTradeForm').style.display = 'block';
+    });
+
+    document.getElementById('type').addEventListener('change', function() {
+        const type = this.value;
+        const priceDiv = document.getElementById('priceDiv');
+        const tradeOptionsDiv = document.getElementById('tradeOptionsDiv');
+        
+        if (type === 'Sell') {
+            priceDiv.style.display = 'block';
+        } else {
+            priceDiv.style.display = 'none';
+        }
+        
+        if (type === 'Trade') {
+            tradeOptionsDiv.style.display = 'block';
+        } else {
+            tradeOptionsDiv.style.display = 'none';
+        }
+    });
+
+    document.getElementById('trade_options').addEventListener('change', function() {
+        const otherOptionDiv = document.getElementById('otherOptionDiv');
+        if (this.value === 'Other') {
+            otherOptionDiv.style.display = 'block';
+        } else {
+            otherOptionDiv.style.display = 'none';
+        }
+    });
+</script>
+{% endblock %}

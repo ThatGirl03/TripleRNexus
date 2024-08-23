@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block title %}R-Blog{% endblock %}
+{% block content %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/nexus.css') }}"
+/>
+
+<body>
+    <header>
+        <h1>Recycled Metal Posts</h1>
+        <button id="createProfileButton">Create Profile</button>
+    </header>
+    
+    <div class="posts-container" id="postsContainer">
+    
+        <div class="post" id="newProfilePost" style="display: none;">
+            <div class="post-header">
+                <img id="profilePicture" class="profile-picture" alt="Profile Picture">
+                <div class="post-header-text">
+                    <p><strong id="userName">New User</strong> - Just Now</p>
+                </div>
+            </div>
+            <div class="post-content">
+                <p id="userBio"></p>
+                <p><strong>Location:</strong> <span id="userLocation"></span></p>
+                <p><strong>Workplace/Project:</strong> <span id="userWorkplace"></span></p>
+                <p><strong>Education:</strong> <span id="userEducation"></span></p>
+                <p><strong>Highlights:</strong> <span id="userHighlights"></span></p>
+                <p><strong>LinkedIn:</strong> <a id="userLinkedin" target="_blank"></a></p>
+                <p><strong>Facebook:</strong> <a id="userFacebook" target="_blank"></a></p>
+                <p><strong>Instagram:</strong> <a id="userInstagram" target="_blank"></a></p>
+
+                <!-- Media Content -->
+                <div id="mediaContent"></div>
+
+                <!-- Comment Section -->
+                <div id="commentsSection"></div>
+
+                <button id="removeProfileButton" class="remove-button">Remove Profile</button>
+                <button id="commentButton" class="comment-button">Comment</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('createProfileButton').addEventListener('click', function() {
+            window.location.href = 'create-profile';
+        });
+
+        // Load and display the newly created profile
+        window.onload = function() {
+            const firstName = localStorage.getItem('firstName');
+            const lastName = localStorage.getItem('lastName');
+            const bio = localStorage.getItem('bio');
+            const location = localStorage.getItem('location');
+            const workplace = localStorage.getItem('workplace');
+            const education = localStorage.getItem('education');
+            const highlights = localStorage.getItem('highlights');
+            const linkedin = localStorage.getItem('linkedin');
+            const facebook = localStorage.getItem('facebook');
+            const instagram = localStorage.getItem('instagram');
+            const profilePicture = localStorage.getItem('profilePicture');
+            const mediaContent = localStorage.getItem('profileMedia');
+            const mediaType = localStorage.getItem('profileMediaType');
+
+            if (firstName && lastName && location && workplace) {
+                document.getElementById('userName').textContent = firstName + ' ' + lastName;
+                document.getElementById('userBio').textContent = bio;
+                document.getElementById('userLocation').textContent = location;
+                document.getElementById('userWorkplace').textContent = workplace;
+                document.getElementById('userEducation').textContent = education;
+                document.getElementById('userHighlights').textContent = highlights;
+                document.getElementById('userLinkedin').href = linkedin;
+                document.getElementById('userLinkedin').textContent = linkedin;
+                document.getElementById('userFacebook').href = facebook;
+                document.getElementById('userFacebook').textContent = facebook;
+                document.getElementById('userInstagram').href = instagram;
+                document.getElementById('userInstagram').textContent = instagram;
+
+                if (profilePicture) {
+                    document.getElementById('profilePicture').src = profilePicture;
+                }
+
+                // Display media content if available
+                if (mediaContent && mediaType) {
+                    const mediaElement = document.createElement(mediaType.startsWith('image/') ? 'img' : 'video');
+                    mediaElement.src = mediaContent;
+                    if (mediaType.startsWith('video/')) {
+                        mediaElement.controls = true;
+                    }
+                    mediaElement.className = 'post-image';
+                    document.getElementById('mediaContent').appendChild(mediaElement);
+                }
+
+                document.getElementById('newProfilePost').style.display = 'flex';
+            }
+
+            // Remove Profile
+            document.getElementById('removeProfileButton').addEventListener('click', function() {
+                localStorage.clear();
+                document.getElementById('newProfilePost').style.display = 'none';
+            });
+
+            // Handle Comments
+            document.getElementById('commentButton').addEventListener('click', function() {
+                const comment = prompt("Enter your comment:");
+                if (comment) {
+                    const commentElement = document.createElement('div');
+                    commentElement.className = 'comment';
+                    commentElement.textContent = comment;
+                    document.getElementById('commentsSection').appendChild(commentElement);
+                }
+            });
+        };
+    </script>
+</body>
+{% endblock %}

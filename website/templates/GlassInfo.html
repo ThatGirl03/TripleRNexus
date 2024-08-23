@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}R-Blog{% endblock %}
+{% block content %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/nexus.css') }}"
+/>
+
+<body>
+    <header>
+        <h1>Recycled Cans Posts</h1>
+        <button id="createProfileButton">Create Profile</button>
+    </header>
+    
+    <div class="posts-container">
+       
+       
+    </div>
+
+    <script>
+        document.getElementById('createProfileButton').addEventListener('click', function() {
+            window.location.href = 'create-profile';
+        });
+    </script>
+</body>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Re-duce{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/reduce.css') }}" />
+
+<section class="reduce-intro">
+  <h1>Reducing Waste for a Better Tomorrow</h1>
+  <p>Reducing waste is the first and most effective step in minimizing our environmental impact. By being mindful of what we consume, we can significantly cut down on the amount of waste we produce.</p>
+  <img src="/static/images/reduce 2.jpg" alt="Reduce waste example" class="intro-image">
+</section>
+
+<section class="reduce-benefits">
+  <h2>Did You Know You Can Save Money by Reducing?</h2>
+  <p>By reducing the amount of products we buy and use, we not only cut down on waste but also save money. Simple actions like buying in bulk, choosing reusable items, and planning meals can make a significant difference to your wallet and the environment.</p>
+  <img src="/static/images/tips reduce.webp" alt="Money through reducing" class="reduce-image">
+</section>
+
+<section class="reduce-examples">
+  <h3>Things You Can Reduce</h3>
+  <ul>
+    <li>Plastic consumption by using reusable bags and bottles</li>
+    <li>Food waste by meal planning and proper storage</li>
+    <li>Energy usage by turning off lights and unplugging devices</li>
+    <li>Water consumption by fixing leaks and using efficient fixtures</li>
+  </ul>
+  <img src="/static/images/all2.jpg" alt="Reduce examples" class="reduce-examples-image">
+</section>
+
+<section class="reduce-importance">
+  <h3>The Importance of Reducing</h3>
+  <p>Reducing waste helps to conserve resources, reduce pollution, and decrease the demand for landfill space. It's a crucial step in mitigating climate change and preserving the environment for future generations.</p>
+</section>
+
+<section class="reduce-impact">
+  <h3>Impact of Reducing on the Environment</h3>
+  <p>Reducing waste leads to lower greenhouse gas emissions, less pollution, and decreased resource extraction. Every small step we take to reduce our waste has a big impact on the health of our planet.</p>
+  <img src="/static/images/reuse recycling.jpg" alt="Environmental impact" class="impact-image">
+</section>
+
+<section class="littering-dangers">
+  <h3>The Dangers of Littering</h3>
+  <p>Littering contributes to the contamination of soil and water, harms wildlife, and increases the risk of fires. It's an avoidable problem that has severe consequences for the environment and public health. By reducing our waste, we can help prevent these dangers.</p>
+</section>
+
+<section class="partnerships">
+  <h3>Connect and Collaborate</h3>
+  <p>Our platform allows you to connect with like-minded individuals and organizations focused on reducing waste. Together, we can drive change and create a sustainable future.</p>
+</section>
+
+{% endblock %}

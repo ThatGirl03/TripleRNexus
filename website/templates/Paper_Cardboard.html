@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Nexus{% endblock %}
+{% block content %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/nexus.css') }}"
+/>
+
+<body>
+    <header>
+        <h1>Recycled Paper Posts</h1>
+        <button id="createProfileButton">Create Profile</button>
+    </header>
+    
+    <div class="posts-container">
+       
+        <!-- More posts can be added in similar structure -->
+    </div>
+
+    <script>
+        document.getElementById('createProfileButton').addEventListener('click', function() {
+            window.location.href = 'create-profile';
+        });
+    </script>
+</body>
+</html>
+
+{% endblock %}

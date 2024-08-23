@@ -1,0 +1,55 @@
+/* Reuse Page Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #cdf3cd;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    color: rgb(43, 158, 95);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.intro-image, .reuse-image, .reuse-examples-image, .impact-image {
+    width: 30%;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #7adfe2;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+ul {
+    list-style-type: square;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+.partnerships {
+    background-color: #e0f7e0;
+    text-align: center;
+    padding: 30px;
+}
+
+.partnerships h3 {
+    margin-bottom: 20px;
+}
+
+.partnerships p {
+    font-size: 18px;
+}
+

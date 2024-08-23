@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}Re-cycle{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/recycle.css') }}" />
+
+<section class="recycle-intro">
+  <h1>Recycling: Closing the Loop</h1>
+  <p>Recycling is a vital process that transforms waste into new materials, reducing the need for raw resources and minimizing environmental impact. By recycling, we help close the loop and contribute to a circular economy.</p>
+  <img src="/static/images/recycle bin.png" alt="Recycling process" class="intro-image">
+</section>
+
+<section class="recycle-benefits">
+  <h2>Did You Know You Can Make Money by Recycling?</h2>
+  <p>Recycling isn't just good for the planet—it's also a potential source of income. Many materials, like metals, plastics, and electronics, can be recycled for profit, helping you earn while you protect the environment.</p>
+  <img src="/static/images/money-recycling.webp" alt="Money through recycling" class="recycle-image">
+</section>
+
+<section class="recycle-examples">
+  <h3>Things You Can Recycle</h3>
+  <ul>
+    <li>Plastic bottles and containers</li>
+    <li>Aluminum cans and metals</li>
+    <li>Paper, cardboard, and packaging</li>
+    <li>Electronics and batteries</li>
+  </ul>
+  <img src="/static/images/what to recycle.jpg" alt="Recycle examples" class="recycle-examples-image">
+</section>
+
+<section class="recycle-importance">
+  <h3>The Importance of Recycling</h3>
+  <p>Recycling conserves resources, reduces the need for new raw materials, and lowers energy consumption. It's an essential practice for reducing pollution and mitigating the effects of climate change.</p>
+</section>
+
+<section class="recycle-impact">
+  <h3>Impact of Recycling on the Environment</h3>
+  <p>Recycling reduces landfill waste, decreases greenhouse gas emissions, and conserves natural habitats. By recycling, we minimize the need for extraction and processing of raw materials, which are often destructive to the environment.</p>
+  <img src="/static/images/all3.webp" alt="Environmental impact" class="impact-image">
+</section>
+
+<section class="littering-dangers">
+  <h3>The Dangers of Littering</h3>
+  <p>Littering leads to the accumulation of waste in natural habitats, harming wildlife and contributing to pollution. It also causes visual pollution and can lead to dangerous health hazards. By recycling, we can prevent litter from entering our environment.</p>
+</section>
+
+<section class="partnerships">
+  <h3>Connect and Collaborate</h3>
+  <p>Join our platform to connect with others who are passionate about recycling. Collaborate on projects, share resources, and contribute to a more sustainable and cleaner Earth.</p>
+</section>
+
+{% endblock %}

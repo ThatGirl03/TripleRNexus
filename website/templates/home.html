@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/home.css') }}"
+/>
+
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/about.css') }}"
+/>
+
+<section class="hero">
+  <div class="slider-container">
+    <div class="slides">
+      <!-- Hero Image as part of the slider -->
+      <div class="slide">
+        <div class="hero-image">
+          <div class="hero-text">
+            <h1>Welcome to TripleRnexus</h1>
+            <p>Empowering Your Future with Green Innovation</p>
+          </div>
+        </div>
+      </div>
+      <!-- Additional Images -->
+      <div class="slide">
+        <img src="/static/images/waterP.jpeg" alt="Image 1">
+        <h1>Welcome to TripleRnexus</h1>
+            <p>Empowering Your Future with Green Innovation</p>
+      </div>
+      <!-- Add more slides here -->
+    </div>
+    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="next" onclick="moveSlide(1)">&#10095;</button>
+  </div>
+</section>
+
+<section class="profiles">
+  <h2>Meet Our Nexus</h2>
+  <div class="profile-container">
+    <div class="profile">
+      <img src="/static/images/face4.jpg" alt="Profile 1" class="profile-image">
+      <div class="profile-details">
+        <h3>Jennifer Daniels</h3>
+        <p>Location: New York, USA</p>
+        <p>Bio: Environmental Advocate & Tech Enthusiast</p>
+        <a href="{{ url_for('auth.login') }}" class="view-link">View</a>
+      </div>
+    </div>
+    <div class="profile">
+      <img src="/static/images/face3.jpg" alt="Profile 2" class="profile-image">
+      <div class="profile-details">
+        <h3>Amanda Smith</h3>
+        <p>Location: London, UK</p>
+        <p>Bio: Sustainability Consultant & Innovator</p>
+        <a href="{{ url_for('auth.login') }}" class="view-link">View</a>
+      </div>
+    </div>
+    <div class="profile">
+      <img src="/static/images/face2.webp" alt="Profile 3" class="profile-image">
+      <div class="profile-details">
+        <h3>Aniko Johnson</h3>
+        <p>Location: South Africa, Cape Town</p>
+        <p>Bio: Green Technology Expert & Entrepreneur</p>
+        <a href="{{ url_for('auth.login') }}" class="view-link">View</a>
+      </div>
+    </div>
+    <div class="profile">
+      <img src="/static/images/Face1.jpg" alt="Profile 4" class="profile-image">
+      <div class="profile-details">
+        <h3>Robert Brown</h3>
+        <p>Location: Toronto, Canada</p>
+        <p>Bio: Renewable Energy Specialist</p>
+        <a href="{{ url_for('auth.sign_up') }}" class="view-link">View</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="circles-section"> 
+  <div class="circles-container">
+    <div class="circle">
+      <div class="circle-content front">CONNECT</div>
+      <div class="circle-content back">Nexus</div>
+    </div>
+    <div class="circle">
+      <div class="circle-content front">LEARN</div>
+      <div class="circle-content back">Back Text 2</div>
+    </div>
+    <div class="circle">
+      <div class="circle-content front">SELL</div>
+      <div class="circle-content back">Back Text 3</div>
+    </div>
+    <div class="circle">
+      <div class="circle-content front">YOUR STORY</div>
+      <div class="circle-content back">Back Text 4</div>
+    </div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="about-content">
+    <h2>About TripleRnexus</h2>
+    <p>Welcome to TripleRnexus, where we believe in shaping a sustainable future through innovation and technology. Our mission is to create impactful solutions that blend environmental consciousness with cutting-edge technology. At TripleRnexus, we strive to empower communities, foster green practices, and drive technological advancements that contribute to a better planet.</p>
+    <p>Our commitment extends beyond mere innovation. We work tirelessly to integrate sustainability into every aspect of our operations, ensuring that every step we take brings us closer to a greener and more connected world. Join us on our journey as we turn ideas into action, and transform our vision of a sustainable future into reality.</p>
+    <a href="{{ url_for('views.about') }}" class="learn-more-link">Learn More</a>
+  </div>
+</section>
+
+
+<script>
+  let currentSlide = 0;
+
+  function moveSlide(step) {
+    const slides = document.querySelector('.slides');
+    const totalSlides = document.querySelectorAll('.slide').length;
+
+    currentSlide = (currentSlide + step + totalSlides) % totalSlides;
+    slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+  }
+
+  // Optional: Automatically slide every 5 seconds
+  setInterval(() => moveSlide(1), 5000);
+
+
+
+</script>
+
+<!-- Chatbot Container -->
+<div id="chatbot-container" class="chatbot-container">
+  <div class="chatbot-icon">
+    <img src="/static/images/chat.jpg" alt="Chat Icon" />
+  </div>
+  <div id="chatbot-expanded" class="chatbot-expanded">
+    <button class="close-chatbot">&times;</button> <!-- Close button -->
+    <iframe src="https://creator.voiceflow.com/prototype/66c5a888f9ca8d559e85ba72" frameborder="0"></iframe>
+  </div>
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var chatbotIcon = document.querySelector('.chatbot-icon');
+    var chatbotExpanded = document.getElementById('chatbot-expanded');
+
+    chatbotIcon.addEventListener('click', function() {
+      // Toggle the display of the expanded view
+      if (chatbotExpanded.style.display === 'block') {
+        chatbotExpanded.style.display = 'none';
+      } else {
+        chatbotExpanded.style.display = 'block';
+      }
+    });
+
+    // Optional: Add functionality to close the chatbot
+    var closeChatbot = document.querySelector('.close-chatbot');
+    if (closeChatbot) {
+      closeChatbot.addEventListener('click', function() {
+        chatbotExpanded.style.display = 'none';
+      });
+    }
+  });
+</script>
+
+
+
+{% endblock %}
